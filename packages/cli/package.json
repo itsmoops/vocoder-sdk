@@ -1,0 +1,27 @@
+{
+  "name": "@vocoder/cli",
+  "version": "0.1.0",
+  "description": "CLI tool for Vocoder SDK",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "bin": {
+    "vocoder": "dist/bin.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc --outDir dist src/bin.ts && tsc --declaration --emitDeclarationOnly --outDir dist src/bin.ts",
+    "dev": "tsc --watch --outDir dist src/bin.ts",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "@vocoder/types": "^0.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^7.2.0",
+    "vitest": "^1.0.0"
+  }
+}
