@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx next@^14.0.0 dev -p 3001",
+    "dev": "NODE_OPTIONS='--inspect=9232' npx next@^14.0.0 dev -p 3001",
+    "debug": "NODE_OPTIONS='--inspect-brk=9232' npx next@^14.0.0 dev -p 3001",
     "start": "npx next@^14.0.0 start -p 3001",
     "lint": "npx next@^14.0.0 lint"
   },

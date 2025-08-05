@@ -21,7 +21,8 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
   const [translations, setTranslations] = useState<TranslationsMap>(initialTranslations || {});
   const [locale, setLocaleState] = useState<string>(() => {
     // Initialize with smart locale detection
-    return getStoredLocale(STORAGE_KEY, defaultLocale);
+    const storedLocale = getStoredLocale(STORAGE_KEY, defaultLocale);
+    return storedLocale;
   });
   const [isLoading, setIsLoading] = useState(!initialTranslations);
   const [error, setError] = useState<string | null>(null);
@@ -54,7 +55,7 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
 
         // Get API key from props, then environment variables
         const key = apiKey || getEnvVar('VOCODER_API_KEY');
-
+        
         if (!key) {
           throw new Error(
             'Missing VOCODER_API_KEY. Please provide it as a prop, set VOCODER_API_KEY environment variable, ' +
@@ -83,6 +84,7 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
         }
 
         const data = await res.json();
+        
         setTranslations(data);
 
         // After fetching translations, update locale to best match if needed
@@ -97,6 +99,7 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
           }
         }
       } catch (err) {
+        console.error('💥 Error during translation fetch:', err);
         setError(err instanceof Error ? err.message : 'Failed to fetch translations');
         console.error('Vocoder SDK Error:', err);
       } finally {

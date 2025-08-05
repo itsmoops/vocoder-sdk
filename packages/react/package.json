@@ -1,29 +1,21 @@
 {
   "name": "@vocoder/react",
   "version": "0.1.0",
-  "description": "React components for Vocoder SDK",
+  "description": "React components for the Vocoder SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "build": "tsc --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports && tsc --declaration --emitDeclarationOnly --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports",
-    "dev": "tsc --watch --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports",
-    "test": "vitest",
-    "lint": "eslint . --ext .ts"
+    "build": "tsc --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true && tsc --declaration --emitDeclarationOnly --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true"
   },
   "dependencies": {
-    "react": "^18.0.0"
-  },
-  "peerDependencies": {
+    "@vocoder/types": "workspace:*",
     "react": "^18.0.0"
   },
   "devDependencies": {
-    "tsup": "^7.2.0",
-    "vitest": "^1.0.0",
     "@types/react": "^18.0.0",
-    "@types/node": "^20.0.0"
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
   }
 }
