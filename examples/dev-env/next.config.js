@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['@vocoder/react', '@vocoder/types'],
@@ -10,6 +12,15 @@ const nextConfig = {
     
     // Ensure workspace packages are properly handled
     config.resolve.symlinks = false;
+    
+    // In development, resolve workspace packages to their source files
+    if (dev) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@vocoder/react': path.resolve(__dirname, '../../packages/react/src'),
+        '@vocoder/types': path.resolve(__dirname, '../../packages/types/src'),
+      };
+    }
     
     // Watch workspace packages for changes
     if (dev) {
