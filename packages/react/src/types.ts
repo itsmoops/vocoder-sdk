@@ -18,9 +18,9 @@ export interface TranslationContextValue {
 
 // Props for the TranslationProvider component
 export interface TranslationProviderProps {
+  apiKey?: string;
   children: React.ReactNode;
   defaultLocale?: string;
-  apiKey?: string;
   translations?: TranslationsMap;
 }
 

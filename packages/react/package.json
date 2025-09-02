@@ -5,10 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true && tsc --declaration --emitDeclarationOnly --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true"
+    "build": "tsc --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true && tsc --declaration --emitDeclarationOnly --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true",
+    "dev": "tsc --watch --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true",
+    "watch": "tsc --watch --outDir dist src/index.ts --jsx react-jsx --esModuleInterop --allowSyntheticDefaultImports --sourceMap --inlineSourceMap false --inlineSources true"
   },
   "dependencies": {
-    "@vocoder/types": "workspace:*",
+    "@vocoder/types": "file:../types",
     "react": "^18.0.0"
   },
   "devDependencies": {

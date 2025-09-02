@@ -1,13 +1,5 @@
-// Export components
-export { TranslationProvider, useTranslation } from './TranslationProvider';
-export { LocaleSelector } from './LocaleSelector';
+export { TranslationProvider, TranslationProviderServer, useTranslation } from './TranslationProvider';
 export { Translation } from './Translation';
+export { LocaleSelector } from './LocaleSelector';
 
-// Export types
-export type {
-  TranslationsMap,
-  TranslationContextValue,
-  TranslationProps,
-  LocaleSelectorProps,
-  TranslationProviderProps
-} from './types';
+export type { TranslationProviderProps, TranslationProps, LocaleSelectorProps } from './types';

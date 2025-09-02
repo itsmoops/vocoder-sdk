@@ -3,6 +3,13 @@
 import { LocaleSelector, Translation, TranslationProvider, useTranslation } from '@vocoder/react';
 import { useEffect, useState } from 'react';
 
+// Global type declaration for API key
+declare global {
+  interface Window {
+    __VOCODER_API_KEY__?: string;
+  }
+}
+
 // Mock API endpoint for testing
 const MOCK_TRANSLATIONS = {
   en: {
@@ -273,6 +280,16 @@ export default function HomePage() {
             <li><strong>API Key Sources:</strong> Test different ways to provide API keys</li>
             <li><strong>Storage Fallbacks:</strong> Test in private browsing mode</li>
             <li><strong>SSR Compatibility:</strong> Check page source for server-side rendering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="test-section">
+        <h2>Additional Test Pages</h2>
+        <div className="info">
+          <ul>
+            <li><a href="/ssr-test" style={{ color: '#0070f3' }}>SSR Test Page</a> - Test server-side rendering</li>
+            <li><a href="/ssr-best-practices" style={{ color: '#0070f3' }}>SSR Best Practices</a> - Learn server vs client component patterns</li>
           </ul>
         </div>
       </div>
